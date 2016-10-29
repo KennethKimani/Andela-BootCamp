@@ -13,5 +13,5 @@ def all_prime_numbers_below_n(num):
             print(num,"is prime")
 
 
-
-all_prime_numbers_below_n(10)
+n = int(input("Enter max number: "))
+all_prime_numbers_below_n(n)
