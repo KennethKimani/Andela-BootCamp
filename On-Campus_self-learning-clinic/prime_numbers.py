@@ -5,7 +5,7 @@ def all_prime_numbers_below_n(num):
     #The only even prime number
     print 2
     for num in range(3,num,2):
-        #increment range you by 2, and only check odd numbers
+        #increment range you by 2, to only check for odd numbers since even numbers divisible by two
         if all(num%i!=0 for i in range(2,int(math.sqrt(num))+1)):
            print num
 
