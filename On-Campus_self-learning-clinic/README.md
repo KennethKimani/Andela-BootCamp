@@ -1,1 +1,1 @@
-Andela Boot Camp Day One
+Andela Boot Camp Day One On-Campus Self Learning Exercises
