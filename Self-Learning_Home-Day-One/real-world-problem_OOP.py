@@ -4,7 +4,8 @@ class BlindDate(object):
    Evaluation code for applicants to join a dating site.
     """
 
-    def __init__(self, gender, age, marital_status, age_find, application_complete):
+    def __init__(self, name, gender, age, marital_status, age_find, application_complete):
+        self.name = name
         self.gender = gender
         self.age = age
         self.age_find = age_find
@@ -13,12 +14,11 @@ class BlindDate(object):
 
     def join_application(self, age, application_complete):
         if application_complete == "Yes" and age >= 18:
-            return "Appliation accepted! You are Eligible for a blind date"
+            return "Application accepted! Welcome to Dating Site. You are Eligible for a blind date"
         elif application_complete == "Yes" and 18 > age > 0:
             return "Appliation rejected! Too Young to join dating site. Go play FIFA or something.. "
         else:
             return "Application for a blind date not Successful"
-
 
     def match_maker(self, marital_status):
         if marital_status == 'Single':
@@ -42,11 +42,38 @@ class BlindDate(object):
         else:
             return "Sorry but you entered an incorrect value for potential date partner"
 
-
     def bill_payment(self, gender):
         if gender == 'Male':
             return "Please remember you will be footing the bill for the date"
         else:
             return "The date is paid for, all you have to do is turn up"
 
+
+class Match(BlindDate):
+    man = "Male"
+    woman = "Female"
+
+    def matchup(self, man, woman):
+        return 'This is a match!'
+
+
+class Login(BlindDate):
+    complete = "Yes"
+    years = 17
+
+    def join_application(self, years, complete):
+        return self.application_complete
+
+
+class Marital_Status(BlindDate):
+    status = 'single'
+
+    def match_maker(self, status):
+        return self.match_maker
+
+
+user = BlindDate("Mike", "Male", 25, "Single", 23, "Yes")
+print user.application_complete
+print user.age
+print Login.years
 
