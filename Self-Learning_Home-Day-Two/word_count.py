@@ -2,7 +2,6 @@ def words(input):
     """
             Counts the occurrences or characters in a word
         """
-
     # initialize an empty dictionary to hold the final answer
     collection = {}
 
@@ -41,4 +40,3 @@ def words(input):
 
         # return populated dictionary
         return collection
-
