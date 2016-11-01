@@ -1,4 +1,5 @@
 def find_max_min(list_of_numbers):
+    
     """
     A function to return the minimum and maximum number in a list
     and if the min and max are equal, return the number of elements in the list
