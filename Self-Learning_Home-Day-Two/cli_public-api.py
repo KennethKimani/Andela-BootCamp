@@ -5,7 +5,6 @@ import urllib2
 # This short program is a simple command line python application that takes the name of a country and prints out the  information about countries via a RESTful API
 # It uses a RESTful API from https://restcountries.eu/     REST Countries
 
-
 headers = {'Content-type': 'application/json'}
 # this takes a python object and dumps it to a string which is a JSON
 # representation of that object
