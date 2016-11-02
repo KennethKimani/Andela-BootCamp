@@ -1,0 +1,841 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+body { 
+	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753; 
+	background: #fff url(./images/andela2.png) no-repeat bottom right; 
+	margin: 0; 
+	padding: 0;
+	}
+p { 
+	margin-top: 0; 
+	text-align: justify;
+	}
+h3 { 
+	font: italic normal 1.4em georgia, sans-serif;
+	letter-spacing: 1px; 
+	margin-bottom: 0; 
+	color: #7D775C;
+	}
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #B7A5DF;
+	}
+a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #D4CDDC;
+	}
+a:hover, a:focus, a:active { 
+	text-decoration: underline; 
+	color: #9685BA;
+	}
+abbr {
+	border-bottom: none;
+	}
+
+
+/* specific divs */
+.page-wrapper { 
+	background: url(./images/andela5.png) no-repeat top left; 
+	padding: 0 175px 0 110px;  
+	margin: 0; 
+	position: relative;
+	}
+
+.intro { 
+	min-width: 470px;
+	width: 100%;
+	}
+
+header h1 { 
+	background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;
+	margin-top: 10px;
+	display: block;
+	width: 219px;
+	height: 87px;
+	float: left;
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+header h2 { 
+	background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left; 
+	margin-top: 58px; 
+	margin-bottom: 40px; 
+	width: 200px; 
+	height: 18px; 
+	float: right;
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+header {
+	padding-top: 20px;
+	height: 87px;
+}
+
+.summary {
+	clear: both; 
+	margin: 20px 20px 20px 10px; 
+	width: 160px; 
+	float: left;
+	}
+.summary p {
+	font: italic 1.1em/2.2 georgia; 
+	text-align: center;
+	}
+
+.preamble {
+	clear: right; 
+	padding: 0px 10px 0 10px;
+	}
+.supporting {	
+	padding-left: 10px; 
+	margin-bottom: 40px;
+	}
+
+footer { 
+	text-align: center; 
+	}
+footer a:link, footer a:visited { 
+	margin-right: 20px; 
+	}
+
+.sidebar {
+	margin-left: 600px; 
+	position: absolute; 
+	top: 0; 
+	right: 0;
+	}
+.sidebar .wrapper { 
+	font: 10px verdana, sans-serif; 
+	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y; 
+	padding: 10px; 
+	margin-top: 150px; 
+	width: 130px; 
+	}
+.sidebar h3.select { 
+	background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left; 
+	margin: 10px 0 5px 0; 
+	width: 97px; 
+	height: 16px; 
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+.sidebar h3.archives { 
+	background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left; 
+	margin: 25px 0 5px 0; 
+	width:57px; 
+	height: 14px; 
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+.sidebar h3.resources { 
+	background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left; 
+	margin: 25px 0 5px 0; 
+	width:63px; 
+	height: 10px; 
+
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	}
+.sidebar li {
+	line-height: 1.3em; 
+	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center; 
+	display: block; 
+	padding-top: 5px; 
+	margin-bottom: 5px;
+	list-style-type: none;
+	}
+.sidebar li a:link {
+	color: #988F5E;
+	}
+.sidebar li a:visited {
+	color: #B3AE94;
+	}
+
+
+.extra1 {
+	background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat; 
+	position: absolute; 
+	top: 40px; 
+	right: 0; 
+	width: 148px; 
+	height: 110px;
+	}
+
+	.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+  padding-right: 0;
+}
+
+  .mdl-layout__content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+      -webkit-flex-direction: column;
+	        flex-direction: column;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+ }
+
+ .mdl-layout__content > *:not(.mdl-layout-spacer) {
+ -webkit-flex: none;
+ -ms-flex: none;
+ flex: none;
+ }
+
+      .wide-card.mdl-card {
+         width: 512px;
+      }
+      .square-card.mdl-card {
+         width: 256px;
+         height: 256px;
+      }
+          
+      .image-card.mdl-card {
+         width: 256px;
+         height: 256px;   
+         background: url('html5-mini-logo.jpg') center / cover;          
+      }       
+      .image-card-image__filename {
+         color: #000;
+         font-size: 14px;
+         font-weight: bold;
+      }
+          
+          .event-card.mdl-card {
+         width: 256px;
+         height: 256px;
+         background: #3E4EB8;
+      }
+          .event-card.mdl-card__title {
+         color: #fff;
+         height: 176px;
+      }
+          
+          .event-card > .mdl-card__actions {
+         border-color: rgba(255, 255, 255, 0.2);
+         display: flex;
+         box-sizing:border-box;
+         align-items: center;
+         color: #fff;
+      }     
+
+
+.mdl-card__media {
+    margin: 0;
+}
+.mdl-card__media > img {
+  max-width: 100%;
+  width: 100%;
+}
+.mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+
+
+
+
+.mdl-layout .mdl-layout__drawer{
+  background: #3964C3;
+}
+.mdl-layout__drawer span.mdl-layout-title {
+  background: #367588;
+  color: #8b0000;
+}
+.mdl-layout__drawer a.mdl-navigation__link {
+  color: #000;
+  font-weight: 200;
+  font-size: 14px;
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  color: #FFF;
+ 
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+  color: #000;
+ 
+}
+.mdl-layout__drawer a.mdl-navigation__link:hover {
+  color: #FFE6B3;
+}
+
+
+
+header.mdl-layout__header-row {
+  background: #ffd700;
+}
+.mdl-layout__header-row span.mdl-layout-title {
+  color: #ffb648;
+  text-transform: uppercase;
+}
+.mdl-layout__header-row .material-icons {
+  color: #fff;
+}
+.mdl-layout__header-row a.mdl-navigation__link {
+  color: #eee;
+  font-weight: 700;
+  font-size: 14px;
+}
+.mdl-layout__header-row a.mdl-navigation__link:hover {
+  color: #fff;
+}
+
+
+
+
+.mdl-mega-footer {
+  background: #3964C3;
+    color: #eee;
+  font-weight: 700;
+  font-size: 14px;
+
+}
+.mdl-mega-footer .mdl-mega-footer--top-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+	
+
+}
+.mdl-mega-footer .mdl-mega-footer--bottom-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+//
+// Social Sharing Buttons for Material Design Lite
+// by Brandon Himpfen http://www.himpfen.com/
+// --------------------------------------------------
+.mdl-button.mdl-button--twitter {
+    color: rgb(63, 81, 181)
+}
+.mdl-button.mdl-button--twitter:focus:not(:active) {
+    background-color: #00acee
+}
+.mdl-button--raised.mdl-button--twitter {
+    background: #00acee;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--raised.mdl-button--twitter:hover {
+    background-color: #00acee
+}
+.mdl-button--raised.mdl-button--twitter:active {
+    background-color: #00acee
+}
+.mdl-button--raised.mdl-button--twitter:focus:not(:active) {
+    background-color: #00acee
+}
+.mdl-button--raised.mdl-button--twitter .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--twitter {
+    background: #00acee;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--twitter:hover {
+    background-color: #00acee
+}
+.mdl-button--fab.mdl-button--twitter:focus:not(:active) {
+    background-color: #00acee
+}
+.mdl-button--fab.mdl-button--twitter:active {
+    background-color: #00acee
+}
+.mdl-button--fab.mdl-button--twitter .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button.mdl-button--facebook {
+    color: rgb(63, 81, 181)
+}
+.mdl-button.mdl-button--facebook:focus:not(:active) {
+    background-color: #3b5998
+}
+.mdl-button--raised.mdl-button--facebook {
+    background: #3b5998;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--raised.mdl-button--facebook:hover {
+    background-color: #3b5998
+}
+.mdl-button--raised.mdl-button--facebook:active {
+    background-color: #3b5998
+}
+.mdl-button--raised.mdl-button--facebook:focus:not(:active) {
+    background-color: #3b5998
+}
+.mdl-button--raised.mdl-button--facebook .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--facebook {
+    background: #3b5998;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--facebook:hover {
+    background-color: #3b5998
+}
+.mdl-button--fab.mdl-button--facebook:focus:not(:active) {
+    background-color: #3b5998
+}
+.mdl-button--fab.mdl-button--facebook:active {
+    background-color: #3b5998
+}
+.mdl-button--fab.mdl-button--facebook .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button.mdl-button--googleplus {
+    color: rgb(63, 81, 181)
+}
+.mdl-button.mdl-button--googleplus:focus:not(:active) {
+    background-color: #e93f2e
+}
+.mdl-button--raised.mdl-button--googleplus {
+    background: #e93f2e;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--raised.mdl-button--googleplus:hover {
+    background-color: #e93f2e
+}
+.mdl-button--raised.mdl-button--googleplus:active {
+    background-color: #e93f2e
+}
+.mdl-button--raised.mdl-button--googleplus:focus:not(:active) {
+    background-color: #e93f2e
+}
+.mdl-button--raised.mdl-button--googleplus .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--googleplus {
+    background: #e93f2e;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--googleplus:hover {
+    background-color: #e93f2e
+}
+.mdl-button--fab.mdl-button--googleplus:focus:not(:active) {
+    background-color: #e93f2e
+}
+.mdl-button--fab.mdl-button--googleplus:active {
+    background-color: #e93f2e
+}
+.mdl-button--fab.mdl-button--googleplus .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button.mdl-button--stumbleupon {
+    color: rgb(63, 81, 181)
+}
+.mdl-button.mdl-button--stumbleupon:focus:not(:active) {
+    background-color: #f74425
+}
+.mdl-button--raised.mdl-button--stumbleupon {
+    background: #f74425;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--raised.mdl-button--stumbleupon:hover {
+    background-color: #f74425
+}
+.mdl-button--raised.mdl-button--stumbleupon:active {
+    background-color: #f74425
+}
+.mdl-button--raised.mdl-button--stumbleupon:focus:not(:active) {
+    background-color: #f74425
+}
+.mdl-button--raised.mdl-button--stumbleupon .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--stumbleupon {
+    background: #f74425;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--stumbleupon:hover {
+    background-color: #f74425
+}
+.mdl-button--fab.mdl-button--stumbleupon:focus:not(:active) {
+    background-color: #f74425
+}
+.mdl-button--fab.mdl-button--stumbleupon:active {
+    background-color: #f74425
+}
+.mdl-button--fab.mdl-button--stumbleupon .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button.mdl-button--linkedin {
+    color: rgb(63, 81, 181)
+}
+.mdl-button.mdl-button--linkedin:focus:not(:active) {
+    background-color: #0e76a8
+}
+.mdl-button--raised.mdl-button--linkedin {
+    background: #0e76a8;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--raised.mdl-button--linkedin:hover {
+    background-color: #0e76a8
+}
+.mdl-button--raised.mdl-button--linkedin:active {
+    background-color: #0e76a8
+}
+.mdl-button--raised.mdl-button--linkedin:focus:not(:active) {
+    background-color: #0e76a8
+}
+.mdl-button--raised.mdl-button--linkedin .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--linkedin {
+    background: #0e76a8;
+    color: rgb(255, 255, 255)
+}
+.mdl-button--fab.mdl-button--linkedin:hover {
+    background-color: #0e76a8
+}
+.mdl-button--fab.mdl-button--linkedin:focus:not(:active) {
+    background-color: #0e76a8
+}
+.mdl-button--fab.mdl-button--linkedin:active {
+    background-color: #0e76a8
+}
+.mdl-button--fab.mdl-button--linkedin .mdl-ripple {
+    background: rgb(255, 255, 255)
+}
+
+
+
+.mdl-mega-footer {
+  padding: $footer-min-padding $footer-padding-sides;
+
+  color: $footer-color;
+  background-color: $footer-bg-color;
+}
+
+
+.mdl-mega-footer--top-section:after,
+.mdl-mega-footer--middle-section:after,
+.mdl-mega-footer--bottom-section:after,
+.mdl-mega-footer__top-section:after,
+.mdl-mega-footer__middle-section:after,
+.mdl-mega-footer__bottom-section:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.mdl-mega-footer--left-section,
+.mdl-mega-footer__left-section {
+  margin-bottom: $footer-min-padding;
+}
+
+.mdl-mega-footer--right-section,
+.mdl-mega-footer__right-section {
+  margin-bottom: $footer-min-padding;
+}
+
+.mdl-mega-footer--right-section a,
+.mdl-mega-footer__right-section a {
+  display: block;
+
+  margin-bottom: $footer-min-padding;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 760px) {
+  .mdl-mega-footer--left-section,
+  .mdl-mega-footer__left-section {
+    float: left;
+  }
+
+  .mdl-mega-footer--right-section,
+  .mdl-mega-footer__right-section {
+    float: right;
+  }
+
+  .mdl-mega-footer--right-section a,
+  .mdl-mega-footer__right-section a {
+    display: inline-block;
+
+    margin-left: $footer-min-padding;
+
+    line-height: $footer-btn-size;
+    vertical-align: middle;
+  }
+}
+
+.mdl-mega-footer--social-btn,
+.mdl-mega-footer__social-btn {
+  width: $footer-btn-size;
+  height: $footer-btn-size;
+
+  padding: 0;
+  margin: 0;
+
+  background-color: $footer-button-fill-color;
+
+  border: none;
+}
+
+.mdl-mega-footer--drop-down-section,
+.mdl-mega-footer__drop-down-section {
+  display: block;
+
+  position: relative;
+}
+
+@media screen and (min-width: 760px) {
+  .mdl-mega-footer--drop-down-section,
+  .mdl-mega-footer__drop-down-section {
+    width: 33%;
+  }
+
+  .mdl-mega-footer--drop-down-section:nth-child(1),
+  .mdl-mega-footer--drop-down-section:nth-child(2),
+  .mdl-mega-footer__drop-down-section:nth-child(1),
+  .mdl-mega-footer__drop-down-section:nth-child(2) {
+    float: left;
+  }
+
+  .mdl-mega-footer--drop-down-section:nth-child(3),
+  .mdl-mega-footer__drop-down-section:nth-child(3) {
+    float: right;
+
+  }
+
+  .mdl-mega-footer--drop-down-section:nth-child(4),
+  .mdl-mega-footer__drop-down-section:nth-child(4) {
+    clear: right;
+    float: right;
+  }
+
+  .mdl-mega-footer--middle-section:after,
+  .mdl-mega-footer__middle-section:after {
+    content: '';
+
+    display: block;
+
+    clear: both;
+  }
+
+  .mdl-mega-footer--bottom-section,
+  .mdl-mega-footer__bottom-section {
+    padding-top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mdl-mega-footer--drop-down-section,
+  .mdl-mega-footer--drop-down-section:nth-child(3),
+  .mdl-mega-footer--drop-down-section:nth-child(4),
+  .mdl-mega-footer__drop-down-section,
+  .mdl-mega-footer__drop-down-section:nth-child(3),
+  .mdl-mega-footer__drop-down-section:nth-child(4) {
+    width: 24%;
+
+    float: left;
+  }
+}
+
+.mdl-mega-footer--heading-checkbox,
+.mdl-mega-footer__heading-checkbox {
+  position: absolute;
+  width: 100%;
+  height: $footer-heading-line-height + ($footer-min-padding * 2);
+
+  padding: ($footer-min-padding * 2);
+  margin: 0;
+  margin-top: -$footer-min-padding;
+
+  cursor: pointer;
+
+  z-index: 1;
+  opacity: 0;
+
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
+    font-family: 'Material Icons';
+    content: '\E5CE'
+  }
+}
+
+.mdl-mega-footer--heading-checkbox:checked,
+.mdl-mega-footer__heading-checkbox:checked {
+  &~ul {
+    display:none;
+  }
+
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
+    font-family: 'Material Icons';
+    content: '\E5CF'
+  }
+}
+
+.mdl-mega-footer--heading,
+.mdl-mega-footer__heading {
+  position: relative;
+  width: 100%;
+
+  padding-right: $footer-heading-line-height + $footer-min-padding;
+  margin-bottom: $footer-min-padding;
+
+  box-sizing:border-box;
+
+  font-size: $footer-heading-font-size;
+  line-height: $footer-heading-line-height;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  color: $footer-heading-color;
+}
+
+.mdl-mega-footer--heading:after,
+.mdl-mega-footer__heading:after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: block;
+
+  width: $footer-heading-line-height;
+  height: $footer-heading-line-height;
+
+  background-size: cover;
+}
+
+.mdl-mega-footer--link-list,
+.mdl-mega-footer__link-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: $footer-min-padding * 2;
+  &:after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+}
+
+.mdl-mega-footer--link-list li,
+.mdl-mega-footer__link-list li {
+  @include typo-body-1();
+  line-height: 20px;
+}
+
+.mdl-mega-footer--link-list a,
+.mdl-mega-footer__link-list a {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 760px) {
+  .mdl-mega-footer--heading-checkbox,
+  .mdl-mega-footer__heading-checkbox {
+    display: none;
+
+    &~.mdl-mega-footer--heading:after,
+    &~.mdl-mega-footer__heading:after {
+      background-image: none;
+    }
+  }
+  .mdl-mega-footer--heading-checkbox:checked,
+  .mdl-mega-footer__heading-checkbox:checked {
+  &~ul {
+    display: block;
+  }
+
+  &~.mdl-mega-footer--heading:after,
+  &~.mdl-mega-footer__heading:after {
+    content: '';
+  }
+}
+}
+
+.mdl-mega-footer--bottom-section,
+.mdl-mega-footer__bottom-section {
+  padding-top: $footer-min-padding;
+  margin-bottom: $footer-min-padding;
+}
+
+.mdl-logo {
+  margin-bottom: $footer-min-padding;
+  color: white;
+}
+
+.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li,
+.mdl-mega-footer__bottom-section .mdl-mega-footer__link-list li {
+  float: left;
+
+  margin-bottom: 0;
+  margin-right: $footer-min-padding;
+}
+
+
+
+@media screen and (min-width: 760px) {
+  .mdl-logo {
+    float: left;
+
+    margin-bottom: 0;
+    margin-right: $footer-min-padding;
+  }
+}
+
+.parent {
+    width: 100%;
+ }
+.child{
+    display: inline-block;
+    width: 45%;
+	margin-left: 10dp;
+	margin-right: 10dp;
+}
