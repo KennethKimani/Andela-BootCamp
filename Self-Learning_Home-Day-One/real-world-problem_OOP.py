@@ -1,6 +1,8 @@
 import datetime
 
 class BlindDate(object):
+    """A real world problem modelled using OOP"""
+    
     """
    Evaluation code for applicants to join a dating site.
     """
@@ -103,6 +105,7 @@ class Marital_Status(BlindDate):
 
 
 user = BlindDate("Mike", "Makonde", "Male", 25, datetime.date(1990, 11, 22), "Single", 23, "mikem@gmail.com", "Yes")
+print user.fullname('Mr')
 
 if user.years_old() != user.age:
     raise RuntimeError('You lied about your age!!.')
@@ -111,6 +114,11 @@ else:
 
 print user.application_complete
 print user.age
+
 print Login.years
+
+
+
+
 
 
