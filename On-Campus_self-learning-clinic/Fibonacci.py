@@ -1,16 +1,18 @@
 def Fibonacci(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return Fibonacci(n - 1) + Fibonacci(n - 2)
+    """Generate Fibonacci sequence from 1 to n"""
+    previous = 0
+    current = 1
+
+    sequence = [previous, current]
+    for i in xrange(1, n):
+        tmp = previous
+        previous = current
+        current += tmp
+
+        sequence.append(current)
+
+    return sequence
 
 m = int(input("Enter max value: "))
+print Fibonacci(m)
 
-if m <= 0:
-   print("Plese enter a positive integer")
-else:
-   print("Fibonacci sequence:")
-   for i in range(m):
-       print(Fibonacci(i))
