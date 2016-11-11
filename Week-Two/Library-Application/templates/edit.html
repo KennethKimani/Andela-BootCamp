@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+    <title>Python Flask Library App</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+
+</head>
+
+<body>
+{% block body %}
+            {% if session['logged_in'] and session['user'] %}
+
+            {{ session['status'] }} : {{ session['user'] }}
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="container">
+
+
+
+
+
+
+
+          <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation"  class="active"><a href="index">Home</a>
+                    </li>
+                    <li role="presentation"><a href="list_users">Users</a>
+                    </li>
+                    <li role="presentation"><a href="list_books">Books</a>
+                    </li>
+                    <li role="presentation"><a href="list_activities">Logs</a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="logout"><span class="label label-default">Logout</span></a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+
+            <h3 class="text-muted"></h3>
+        </div>
+
+
+
+
+  </div>
+</nav>
+
+
+
+
+<!--
+<div class="page-header">
+  <h1>Example Page Header</h1>
+-->
+
+
+
+    <div class="container">
+
+
+       <div class="jumbotron">
+<div class="container">
+            <!--
+            <div class="jumbotron container-fluid">
+        <div class="jumbotron">
+        <div class="jumbotron container-fluid">
+        <div class="jumbotron container">
+        <div class="jumbotron-fluid">
+            -->
+            <h1>Andela Library App</h1>
+
+
+    <button class="btn btn-primary" type="button">
+              New Books <span class="badge">4</span>
+            </button>
+
+</div>
+        </div>
+            <link rel="stylesheet" href="static/style.css" type="text/css">
+
+
+
+
+<!--
+
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                </div>
+
+
+                    <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> Your message has been sent successfully.
+            </div>
+
+                <div class="alert alert-info fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <span class="close" data-dismiss="alert">&times;</span>
+                    <strong>Note!</strong> Please read the comments carefully.
+                </div>
+
+
+-->
+
+
+         <div class=flash>{{ message }}</div>
+
+
+        <div class="jumbotron container-fluid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <form action = "{{ url_for('save_edits') }}" method = "POST">
+          <fieldset>
+          <legend><h3>New Book Information</h3></legend>
+
+              </fieldset>
+
+          <label class="login-field-icon fui-user" for="book-name">Book Name:</label>
+          <input type="text" class="login-field" id="book-name" placeholder="book_name" name="book_name" value="{{session['_book'] }}">
+            <br>
+          <br>
+          <label class="login-field-icon fui-user" for="category">Category:</label>
+          <input type="text" class="login-field" id="category" placeholder="category" name="category" value="{{session['_category'] }}">
+            <br>
+          <br>
+          <label class="login-field-icon fui-user" for="quantity">Quantity:</label>
+          <input type="text" class="login-field" id="quantity" placeholder="quantity" name="quantity" value="{{session['_quantity'] }}">
+            <br>
+          <br>
+
+
+          <p>
+              <label class="login-field-icon fui-user" for="period">Borrow Period:</label>
+             <select  class="login-field" id="period" placeholder="period" name="period" value="{{session['_period'] }}">
+               <option value = "Long Term">Long Term</option>
+                 <option value = "Short Term">Short Term</option>
+
+             </select>
+          </p>
+
+
+
+
+            <br>
+          <br>
+
+         <label class="login-field-icon fui-user" for="description">Description:</label>
+         <textarea name = "description" id="description" placeholder="description"  value="{{request.form.description }}"></textarea><br>
+            <br>
+          <br>
+
+         <input type = "submit" value = "Add" /><br>
+      </form>
+
+
+        <br>
+        <br>
+
+
+
+
+{% else %}
+        {% endif %}
+        {% endblock %}
+
+
+
+
+
+
+
+
+
+            <footer>
+                <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <!-- content -->
+                        <footer class="footer">
+                            <p>&copy; Andela Cohort XI 2016    |   All rights reserved</p>
+
+
+                        </footer>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+
+
+
+                <nav class="navbar navbar-default navbar-static-bottom" role="navigation">
+                  <div class="container">
+                    <div class="footer">
+
+                      <h5 style="text-align:center;">Check <a href="https://github.com/KennethKimani/Andela-BootCamp/tree/master/Week-Two/Library-Application">this Project</a> on Github</h5>
+                    </div>
+
+                  </div>
+                </nav>
+
+
+
+
+</body>
+
+</html>

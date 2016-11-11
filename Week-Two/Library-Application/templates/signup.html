@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/index.css" type="text/css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="static/register.css">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+<style>
+
+        body {
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+  </style>
+
+
+		<title>Sign Up</title>
+	</head>
+	<body>
+
+    <div class="container" style="min-height:100% width:80%">
+                                    {% with messages = get_flashed_messages() %}
+                                      {% if messages %}
+                                        {% for message in messages %}
+                                          <div class="alert alert-warning alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            {{message}}
+                                          </div>
+                                        {% endfor %}
+                                      {% endif %}
+                                    {% endwith %}
+
+                                    {% block body %}{% endblock %}
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu">
+    <div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/index">Andelib</a>
+		</div>
+		<div>
+
+
+                <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation" ><a href="index">Home</a>
+                    </li>
+                    {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+                    <li role="presentation"><a href="list_users">Users</a>
+                    </li>
+                 {% else %}
+                {% endif %}
+                    <li role="presentation"><a href="list_books">Books</a>
+                    </li>
+                    <li role="presentation"><a href="list_activities">Logs</a>
+                    </li>
+                </ul>
+
+
+
+                     </nav>
+
+
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+
+
+                <li  class="active"><a href="/signup" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li ><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+
+
+
+
+
+
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">Andela Library App</h1>
+	               		<hr />
+	               	</div>
+	            </div>
+
+
+
+
+
+
+
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="signup">
+
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Your First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="firstname" id="firstname"  placeholder="Enter your First Name"/>
+								</div>
+							</div>
+						</div>
+
+                        <div class="form-group">
+							<label for="lastname" class="cols-sm-2 control-label">Your Last Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Enter your Last Name"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="inputEmail" id="email"  placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="inputComPassword" id="confirm"  placeholder="Confirm your Password"/>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+
+						</div>
+						<div class="login-register">
+				            <a href="/login">Login</a>
+				         </div>
+					</form>
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

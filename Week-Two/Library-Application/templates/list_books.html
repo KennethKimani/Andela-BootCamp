@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+
+    <script type="text/javascript" src="static/tablesorter.js"></script>
+    		<link rel="stylesheet" type="text/css" href="static/index.css">
+		<link rel="stylesheet" type="text/css" href="static/footer.css">
+
+
+         <!-- choose a theme file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/css/theme.blue.css">
+        <!-- load jQuery and tablesorter scripts -->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.js"></script>
+
+        <!-- tablesorter widgets (optional) -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.widgets.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+    $(".btn[data-target='#myModal']").click(function() {
+       var columnHeadings = $("thead th").map(function() {
+                 return $(this).text();
+              }).get();
+       columnHeadings.pop();
+       var columnValues = $(this).parent().siblings().map(function() {
+                 return $(this).text();
+       }).get();
+  var modalBody = $('<div id="modalContent"></div>');
+  var modalForm = $('<form role="form" name="modalForm" action="/edit" method="post"></form>');
+  $.each(columnHeadings, function(i, columnHeader) {
+       var formGroup = $('<div class="form-group"></div>');
+       formGroup.append('<label for="'+columnHeader+'">'+columnHeader+'</label>');
+       formGroup.append('<input class="form-control" name="'+columnHeader+i+'" id="'+columnHeader+i+'" value="'+columnValues[i]+'" />');
+       modalForm.append(formGroup);
+  });
+  modalBody.append(modalForm);
+  $('.modal-body').html(modalBody);
+});
+$('.modal-footer .btn-primary').click(function() {
+   $('form[name="modalForm"]').submit();
+});
+</script>
+
+
+
+<script>
+$(document).ready(function(){
+$(function(){
+$("#mytable").tablesorter(
+{
+	theme : 'blue',
+
+	sortList : [[0,0],[0,0],[0,0]],
+
+    // header layout template; {icon} needed for some themes
+    headerTemplate : '{content}{icon}',
+
+	// initialize column styling of the table
+    widgets : ["zebra"],
+	widgetOptions : {
+      // change the default column class names
+      // primary is the first column sorted, secondary is the second, etc
+      columns : [ "primary", "secondary", "tertiary" ]
+	}
+});
+});
+});
+</script>
+
+<style>
+
+        body {
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+  </style>
+
+
+</head>
+
+   <body>
+
+
+
+
+
+   <div class="container" style="min-height:100% width:80%">
+                                    {% with messages = get_flashed_messages() %}
+                                      {% if messages %}
+                                        {% for message in messages %}
+                                          <div class="alert alert-warning alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            {{message}}
+                                          </div>
+                                        {% endfor %}
+                                      {% endif %}
+                                    {% endwith %}
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu">
+    <div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/index">Andelib</a>
+		</div>
+		<div>
+
+
+                <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation"><a href="index">Home</a>
+                    </li>
+                    {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+                    <li role="presentation"><a href="list_users">Users</a>
+                    </li>
+                  {% else %}
+                {% endif %}
+                    <li role="presentation"  class="active"><a href="list_books">Books</a>
+                    </li>
+                    <li role="presentation"><a href="list_activities">Logs</a>
+                    </li>
+                </ul>
+
+
+
+                     </nav>
+
+
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+                {% block body %}
+            {% if session['logged_in'] and session['user'] %}
+
+                 <li><a href="/signup" ><span class="glyphicon glyphicon-user"></span> {{ session['user'] }} </a></li>
+				<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            {% else %}
+
+                <li><a href="/signup" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                 {% endif %}
+
+
+
+
+
+
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="container">
+
+        <div class="jumbotron container-fluid">
+            <!--
+        <div class="jumbotron">
+            -->
+            <h1>Library App</h1>
+
+        </div>
+
+
+            {% if session['logged_in'] and session['user'] %}
+
+
+
+
+
+       <div class="container">
+   <div class="row">
+     <div class="col-md-12">
+     <!-- or use any other number .col-md- -->
+         <div class="table-responsive">
+             <div class="table">
+
+
+
+
+
+
+<table id="mytable" class="tablesorter table-condensed table-striped" border = 1 >
+
+
+         <thead class="thead-inverse">
+         <tr>
+            <th style="text-align:center;">Id</th>
+            <th style="text-align:center;">Book</th>
+            <th style="text-align:center;">Quantity</th>
+            <th style="text-align:center;">Borrowed</th>
+            <th style="text-align:center;">Category</th>
+            <th style="text-align:center;">Available</th>
+
+             {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+
+
+            <th style="text-align:center;">Edit</th>
+            <th style="text-align:center;">Delete</th>
+                {% else %}
+                {% endif %}
+            <th style="text-align:center;">Borrow</th>
+          </tr>
+        </thead>
+        <tbody>
+
+         {% for row in rows %}
+            <tr>
+               <td style="text-align:center;">{{row["id"]}}</td>
+               <td style="text-align:center;">{{row["book_name"]}}</td>
+               <td style="text-align:center;"> {{ row["quantity"]}}</td>
+               <td style="text-align:center;">{{row['borrowed']}}</td>
+               <td style="text-align:center;">{{row['category']}}</td>
+               <td style="text-align:center;">{{row['availability']}}</td>
+
+
+                  {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+                <td style="text-align:center;">
+                    <button class="btn btn-warning  btn-xs" data-toggle="modal" data-target="#myModal" contenteditable="false" type="submit">Edit</button>
+                </td>
+
+
+
+
+                <td><form action="/delete/{{ row.id }}" method="post"  class=delete-entry>
+                   <input type="hidden" name="entry_id" value="{{ row.id }}">
+                   <button class="btn btn-warning  btn-xs" type="submit">Delete</button>
+
+                </form>
+                </td>
+                {% else %}
+                {% endif %}
+
+                <td>
+                  <form action="/borrow/{{ row.id }}" method="post">
+                    <input type="hidden" name="activity_id" value="{{ row.id }}"/>
+                        <button class="btn btn-warning  btn-xs" type="submit">Borrow</button>
+                  </form>
+                    </td>
+
+
+
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true" class="">×   </span><span class="sr-only">Close</span>
+
+                </button>
+                 <h4 class="modal-title" id="myModalLabel">Edit Book</h4>
+
+            </div>
+            <div class="modal-body">
+
+
+
+                <form role="form" action="/editbook/{{ row.id }}" method="post">
+                    <input type="hidden" class="form-control" id="_id" placeholder="id" name="edit_id" value="{{row['id']}}">
+
+
+
+
+                    <div class="form-group">
+                        <label for="editBookTitle" class="control-label">Book Title:</label>
+                        <input type="text" class="form-control" id="editBookTitle" placeholder="none" name="editBookTitle" value="{{row['book_name']}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBookQuantity" class="control-label">Book Quantity:</label>
+                        <input type="text" class="form-control" id="editBookQuantity"  placeholder="none" name="editBookQuantity" value="{{row['quantity']}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBookBorrowed" class="control-label">Book Borrowed:</label>
+                        <input type="text" class="form-control" id="editBookBorrowed"  placeholder="none" name="editBookBorrowed" value="{{row['borrowed']}}">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="editBookCategory" class="control-label">Book Category:</label>
+                        <input type="text" class="form-control" id="editBookCategory"  placeholder="none" name="editBookCategory"  value="{{row['category']}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBookAvailable" class="control-label">Book Availability:</label>
+                        <input type="text" class="form-control" id="editBookAvailable"  placeholder="none" name="editBookAvailable" value="{{row['availability']}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBookDescription" class="control-label">Book Description:</label>
+                        <textarea type="text" class="form-control" id="editBookDescription"  placeholder="none" name="editBookDescription" value="{{row['description']}}">{{row['description']}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBookDuration" class="control-label">Book Borrow Duration:</label>
+                        <select  class="form-control" id="editBookDuration"  placeholder="none" name="editBookDuration" name="period" value="{{row['borrow_period']}}">
+                           <option value = "Long Term">Long Term</option>
+                             <option value = "Short Term">Short Term</option>
+
+                            </select>
+                    </div>
+
+
+                   <!-- <div class="modal-footer"> -->
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+          <!--  </div> -->
+
+                </form>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         {% endfor %}
+      </tbody>
+</table>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+                 </div>
+         </div>
+     </div>
+   </div>
+</div>
+
+
+
+
+
+       {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+       <a href = "/add_book"><button class="btn btn-primary btn-xs" type="button">Add New Book</button></a>
+        {% else %}
+        {% endif %}
+       <br>
+
+
+
+
+
+
+
+      <div class="error" id="error" style='color:red; width: 50%; margin: auto auto;'>
+                    {% if error %}
+                    <p class="error"><strong>Error:</strong> {{ error }}
+                  {% endif %}
+            </div>
+</div>
+
+        {% else %}
+        {% endif %}
+        {% endblock %}
+
+		 <footer class="footer">
+            <p>&copy; Andela Cohort XI 2016</p>
+        </footer>
+
+
+
+
+                      <h5 style="text-align:center;">Check <a href="https://github.com/KennethKimani/Andela-BootCamp/tree/master/Week-Two/Library-Application">this Project</a> on Github</h5>
+
+
+    <footer class="footer">
+
+      <div class="container">
+ <ul class="social-icon animate pull-right">
+                  <li><a href="#" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li> <!-- change the link to social page and edit title-->
+                  <li><a href="#" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" title="google plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+                </div>
+    </footer>
+
+
+
+
+
+
+
+
+	</body>
+</html>
+
+

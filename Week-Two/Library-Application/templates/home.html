@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+    <title>Python Flask Library App</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+
+</head>
+
+<body>
+{% block body %}
+            {% if session['logged_in'] and session['user'] %}
+
+            {{ session['status'] }} : {{ session['user'] }}
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="container">
+
+
+
+
+
+
+
+          <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation"  class="active"><a href="index">Home</a>
+                    </li>
+                    <li role="presentation"><a href="list_users">Users</a>
+                    </li>
+                    <li role="presentation"><a href="list_books">Books</a>
+                    </li>
+                    <li role="presentation"><a href="list_activities">Logs</a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="logout"><span class="label label-default">Logout</span></a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+
+            <h3 class="text-muted"></h3>
+        </div>
+
+
+
+
+  </div>
+</nav>
+
+
+
+
+<!--
+<div class="page-header">
+  <h1>Example Page Header</h1>
+-->
+
+
+
+    <div class="container">
+
+
+       <div class="jumbotron">
+<div class="container">
+            <!--
+            <div class="jumbotron container-fluid">
+        <div class="jumbotron">
+        <div class="jumbotron container-fluid">
+        <div class="jumbotron container">
+        <div class="jumbotron-fluid">
+            -->
+            <h1>Andela Library App</h1>
+
+
+    <button class="btn btn-primary" type="button">
+              New Books <span class="badge">4</span>
+            </button>
+
+</div>
+        </div>
+            <link rel="stylesheet" href="static/style.css" type="text/css">
+
+
+
+
+<!--
+
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                </div>
+
+
+                    <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> Your message has been sent successfully.
+            </div>
+
+                <div class="alert alert-info fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <span class="close" data-dismiss="alert">&times;</span>
+                    <strong>Note!</strong> Please read the comments carefully.
+                </div>
+
+
+-->
+
+
+         <div class=flash>{{ message }}</div>
+
+
+        <div class="jumbotron">
+
+
+
+            <a href="list_users" class="btn btn-info" role="button">Users</a>
+            <br>
+            <br>
+            <a href="list_books" class="btn btn-info" role="button">Books</a>
+            <br>
+            <br>
+            <a href="list_activities" class="btn btn-info" role="button">Activities</a>
+            <br>
+            <br>
+
+
+            </div>
+
+
+
+            <div class="error" id="error" style='color:red; width: 50%; margin: auto auto;'>
+                    {% if error %}
+                    <p class="error"><strong>Error:</strong> {{ error }}
+                  {% endif %}
+            </div>
+</div>
+		<p class="lead"></p>
+            <p><a class="btn btn-lg btn-info" href="showSignUp" role="button">Sign up today</a>
+            </p>
+        {% else %}
+        {% endif %}
+        {% endblock %}
+
+
+
+
+
+
+            <footer>
+                <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <!-- content -->
+                        <footer class="footer">
+                            <p>&copy; Andela Cohort XI 2016    |   All rights reserved</p>
+
+
+                        </footer>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+
+
+
+                <nav class="navbar navbar-default navbar-static-bottom" role="navigation">
+                  <div class="container">
+                    <div class="footer">
+
+                      <h5 style="text-align:center;">Check <a href="https://github.com/KennethKimani/Andela-BootCamp/tree/master/Week-Two/Library-Application">this Project</a> on Github</h5>
+                    </div>
+
+                  </div>
+                </nav>
+
+
+
+
+</body>
+
+</html>

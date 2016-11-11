@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <title>Activities List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script type="text/javascript" src="static/tablesorter.js"></script>
+    		<link rel="stylesheet" type="text/css" href="static/index.css">
+		<link rel="stylesheet" type="text/css" href="static/footer.css">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- choose a theme file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/css/theme.blue.css">
+        <!-- load jQuery and tablesorter scripts -->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.js"></script>
+
+        <!-- tablesorter widgets (optional) -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.widgets.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$(function(){
+$("#mytable").tablesorter(
+{
+	theme : 'blue',
+
+	sortList : [[0,0],[0,0],[0,0]],
+
+    // header layout template; {icon} needed for some themes
+    headerTemplate : '{content}{icon}',
+
+	// initialize column styling of the table
+    widgets : ["zebra"],
+	widgetOptions : {
+      // change the default column class names
+      // primary is the first column sorted, secondary is the second, etc
+      columns : [ "primary", "secondary", "tertiary" ]
+	}
+});
+});
+});
+</script>
+
+    <style>
+
+        body {
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+  </style>
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="container" style="min-height:100% width:80%">
+                                    {% with messages = get_flashed_messages() %}
+                                      {% if messages %}
+                                        {% for message in messages %}
+                                          <div class="alert alert-warning alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            {{message}}
+                                          </div>
+                                        {% endfor %}
+                                      {% endif %}
+                                    {% endwith %}
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu">
+    <div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/index">Andelib</a>
+		</div>
+		<div>
+
+
+                <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation"><a href="index">Home</a>
+                    </li>
+                    {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+                    <li role="presentation"><a href="list_users">Users</a>
+                    </li>
+                     {% else %}
+                {% endif %}
+                    <li role="presentation"><a href="list_books">Books</a>
+                    </li>
+                    <li role="presentation"  class="active"><a href="list_activities">Logs</a>
+                    </li>
+                </ul>
+
+
+
+                     </nav>
+
+
+
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+                {% block body %}
+            {% if session['logged_in'] and session['user'] %}
+
+                 <li><a href="/signup" ><span class="glyphicon glyphicon-user"></span> {{ session['user'] }} </a></li>
+				<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            {% else %}
+
+                <li><a href="/signup" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                 {% endif %}
+
+
+
+
+
+
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="container">
+
+
+        <div class="jumbotron container-fluid">
+            <!--
+        <div class="jumbotron">
+            -->
+            <h1>Library App</h1>
+
+        </div>
+
+
+            {% if session['logged_in'] and session['user'] %}
+
+
+
+
+
+<div class="container">
+   <div class="row">
+     <div class="col-md-12">
+     <!-- or use any other number .col-md- -->
+         <div class="table-responsive">
+             <div class="table">
+
+
+
+<table id="mytable" class="tablesorter table-condensed table-striped" border = 1 >
+        <thead>
+
+         <thead class="thead-inverse">
+         <tr>
+            <th>Id</th>
+            <th>Book</th>
+            <th>Borrowed By</th>
+            <th>Date Borrowed</th>
+            <th>Returned By</th>
+            <th>Returned On</th>
+            <th>Surcharge</th>
+            <th>Update</th>
+
+         </tr>
+        </thead>
+        <tbody>
+
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["book"]}}</td>
+               <td>{{row["borrowed_by"]}}</td>
+               <td> {{ row["date_borrowed"]}}</td>
+               <td>{{row['return_by_date']}}</td>
+               <td>{{row['date_returned']}}</td>
+               <td>{{row['surcharge']}}</td>
+
+
+
+
+
+               <td>
+                   <form action="/returnbook/{{ row.id }}" method="post">
+                   <input type="hidden" name="return_id" value="{{ row['unique_book_id'] }}">
+                    <button type="submit" class="btn btn-info btn-xs">Return</button>
+                </form>
+                </td>
+
+                {% if session['logged_in'] and session['user'] and session['status']=="Admin" %}
+                <td>
+                   <form action="/surcharge/{{ row.id }}" method="post"  class=delete-entry>
+                   <input type="hidden" name="surcharge_id" value="{{ row.id }}">
+                    <button type="submit" class="btn btn-info btn-xs" value="Return">Return</button>
+                </form>
+                </td>
+                {% else %}
+                {% endif %}
+
+            </tr>
+         {% endfor %}
+           </tbody>
+      </table>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+                 </div>
+         </div>
+     </div>
+   </div>
+</div>
+
+
+
+
+
+
+          <div class="error" id="error" style='color:red; width: 50%; margin: auto auto;'>
+                    {% if error %}
+                    <p class="error"><strong>Error:</strong> {{ error }}
+                  {% endif %}
+            </div>
+</div>
+		<p class="lead"></p>
+
+        {% else %}
+        {% endif %}
+        {% endblock %}
+
+		  <footer class="footer">
+            <p>&copy; Andela Cohort XI 2016</p>
+        </footer>
+
+
+
+
+                      <h5 style="text-align:center;">Check <a href="https://github.com/KennethKimani/Andela-BootCamp/tree/master/Week-Two/Library-Application">this Project</a> on Github</h5>
+
+
+
+
+
+</body>
+
+</html>

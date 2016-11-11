@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+    <title>Python Flask Library App Logout</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="index">Home</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="login">Sign In</a>
+                    </li>
+                    <li role="presentation"><a href="signUp">Sign Up</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Andela Library App</h3>
+        </div>
+
+        <div class="jumbotron container-fluid">
+            <!--
+        <div class="jumbotron">
+            -->
+            <h1>Library App</h1>
+
+        </div>
+            <link rel="stylesheet" href="static/style.css" type="text/css">
+            {% block body %}
+            {% session['logged_in'] = False  %}
+            <p>You're logged in already!</p>
+            {% else %}
+
+
+ <div class="error" id="error" style='color:red; width: 50%; margin: auto auto;'>
+                    {% if error %}
+                    <p class="error"><strong>Error:</strong> {{ error }}
+                  {% endif %}
+            </div>
+</div>
+		<p class="lead"></p>
+            <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up today</a>
+            </p>
+
+        {% endif %}
+        {% endblock %}
+
+		 <footer class="footer">
+            <p>&copy; Andela Cohort XI 2016</p>
+        </footer>
+
+        <div class="footer">
+
+      <h5 style="text-align:center;">Check <a href="https://github.com/PolBaladas/GCI-LoginApp">this Project</a> on Github</h5>
+    </div>
+
+
+</body>
+
